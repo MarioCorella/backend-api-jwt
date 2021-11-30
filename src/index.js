@@ -14,9 +14,10 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 //Settings
-app.set('port', process.env.PORT || 3000);
+// app.set('port', process.env.PORT || 3000);
+const PORT = process.env.PORT || 3000
 // Server
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log(`Server on port ${process.env.PORT || 3000} `);
 })
 

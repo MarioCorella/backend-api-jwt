@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
-
+const prue = require('dotenv').config()
 const dbConnection = async () => {
     try {
-        await mongoose.connect('mongodb+srv://macosan:Telefona123@cluster0.hngyb.mongodb.net/todoList-MEAN');
+        console.log('ENV', process.env.DB_CNN)
+        await mongoose.connect(process.env.DB_CNN);
         console.log('DB online');
     } catch(err) {
         console.log('err', err)
