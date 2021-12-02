@@ -1,8 +1,15 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const dbConnection = async () => {
+    const options = {
+        useNewUrlParser: true, 
+        useUnifiedTopology: true,
+        autoIndex: true,
+        family: 4
+      }
     try {
-        await mongoose.connect('mongodb+srv://macosan:Telefona123@cluster0.hngyb.mongodb.net/todoList-MEAN');
+        await mongoose.connect(`mongodb+srv://${process.env.DB_CNN}`, options);
         console.log('DB online');
     } catch(err) {
         console.log('err', err)
